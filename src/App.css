@@ -1,38 +1,246 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+html,
+App {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 0px 2px 0px hsl(200, 15%, 8%);
+  position: sticky;
+  top: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar,
+.content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0px 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: hsl(0, 0%, 98%);
+  font-family: 'Nunito Sans';
+  color: hsl(200, 15%, 8%);
+}
+
+body.dark {
+  background-color: hsl(207, 26%, 17%);
+  color: hsl(0, 0%, 100%);
+}
+
+.dark .title {
+  color: hsl(0, 0%, 100%);
+}
+
+.mode {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-weight: 300;
+}
+
+.mode img {
+  margin-right: 5px;
+}
+
+.content {
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.navbar-content {
+  padding: 20px;
+}
+
+.navbar-content,
+.filters,
+.card-list,
+.country-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1400px;
+  user-select: none;
+  width: 100%;
+}
+
+.navbar-content a {
+  color: hsl(200, 15%, 8%);
+  font-family: 'Nunito Sans';
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.filter {
+  width: 200px;
+}
+
+.search {
+  width: 400px;
+}
+
+.filter,
+.search {
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px 0px hsl(200, 15%, 8%);
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  padding: 0 5px;
+}
+
+.search-input,
+.filter {
+  border: unset;
+  font-family: 'Nunito Sans';
+  font-size: 14px;
+  font-weight: 600;
+  outline: unset;
+}
+
+.search-input {
+  cursor: text;
+  margin-left: 10px;
+  width: 100%;
+}
+
+.card-list {
+  flex-wrap: wrap;
+  padding-top: 50px;
+  max-width: 1400px;
+}
+
+.card {
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px 0px hsl(200, 15%, 8%);
+  margin-bottom: 100px;
+  width: 300px;
+}
+
+.card img {
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  height: 180px;
+  width: 100%;
+}
+
+.card-data {
+  padding: 10px 30px;
+}
+
+.country-name {
+  font-weight: 800;
+}
+
+.info-title {
+  font-weight: 600;
+}
+
+.info {
+  font-weight: 400;
+}
+
+.country-data {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  margin-left: 50px;
+}
+
+.country-content img {
+  flex: 1;
+  width: 850px;
+}
+
+.borders {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.borders a {
+  color: hsl(200, 15%, 8%);
+  font-family: 'Nunito Sans';
+  margin-left: 5px;
+  width: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.country-data-mid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.country-data-mid p {
+  width: 250px;
+  margin-top: 0px;
+}
+
+.dark .card,
+.dark .filter,
+.dark .search,
+.dark .search-input,
+.dark .navbar {
+  background-color: hsl(209, 23%, 22%);
+}
+
+.dark .filter,
+.dark .search-input,
+.dark .search-input::placeholder,
+.dark .borders a {
+  color: hsl(0, 0%, 100%);
+}
+
+.dark .search-input::placeholder {
+  opacity: .5;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .navbar,
+  .content {
+    padding: 0px 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .filter {
+    width: 60%;
+    margin-top: 10px;
+  }
+
+  .country-content {
+    flex-direction: column;
+  }
+
+  .search,
+  .country-content img {
+    width: 100%;
+  }
+
+  .country-data {
+    margin-left: 0;
+  }
+
+  .card-list {
+    justify-content: center;
+  }
+
+  .card {
+    margin-bottom: 50px;
+  }
+
+  .navbar-content {
+    padding: 10px;
+  }
+
+  .navbar-content a {
+    font-size: 20px;
   }
 }

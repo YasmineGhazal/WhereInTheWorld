@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./Layout";
+import Page404 from './Page404';
+
+const Home = React.lazy(() => import("./Home"));
+const Country = React.lazy(() => import("./Country"));
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const routes = [
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/country/:code",
+      element: <Country />,
+    },
+  ];
+
+  const router = createBrowserRouter([
+    {
+      element: <Layout />,
+      children: routes,
+      errorElement: <Page404 />,
+    },
+  ]);
+
+  return (<RouterProvider router={router} />);
 }
 
 export default App;
