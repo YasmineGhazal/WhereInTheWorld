@@ -19,7 +19,7 @@ const Navbar = () => {
   const [lightMode, setLightMode] = useState(true);
 
   const toggleMode = () => {
-    document.querySelector('body').classList[lightMode ? 'add' : 'remove']('dark');
+    document.body.classList.toggle('dark');
     setLightMode((lightMode) => !lightMode);
   }
 
